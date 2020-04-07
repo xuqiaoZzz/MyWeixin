@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	<struts>
+	 <package name="default" extends="struts-default" namespace="/">
+		<action name="indirect" class="com.igeek_01_servletapi.IndirectServletAPIAction">
+			
+		</action>
+		
+		<action name="inject" class="com.igeek_01_servletapi.InjectServletAPIAction">
+			
+		</action>
+		
+		<action name="direct" class="com.igeek_01_servletapi.DirectServletAPIAction">
+			<result name="success">/jsp/result.jsp</result>
+		</action>
+	</package>
+	
+	<package name="modelT" extends="struts-default" namespace="/">
+		<action name="login1" class="com.igeek_01_model.LoginAction1"></action>
+		
+		<action name="login2" class="com.igeek_01_model.LoginAction2"></action>
+		
+		<action name="login3" class="com.igeek_01_model.LoginAction3">
+			<result>jsp/valuestack2.jsp</result>
+		</action>
+	</package>
+	
+	<package name="resultT" extends="struts-default" namespace="/">
+		<global-results>
+			<result name="success">/jsp/global_result.jsp</result>
+		</global-results>
+		
+		<action name="global" class="com.result.GlobalResultAction">
+			<result name="success">/jsp/result.jsp</result>
+		</action>
+		
+		<!--  type="dispatcher":这是默认值 ，请求跳转至另外一个jsp页面，无法跳转至另外一个action-->
+		<!-- <action name="rt1" class="com.result.ResultType1Action">
+			<result type="dispatcher" >/jsp/resultType1.jsp</result>
+		</action> -->
+		
+		<!-- type="chain": 跳转至另外一个action -->
+		 <action name="rt1" class="com.result.ResultType1Action">
+			<result type="chain">rt2</result>
+		</action> 
+		<!-- <action name="rt1" class="com.result.ResultType1Action">
+			<result type="redirect">/jsp/resultType2.jsp</result>
+		</action> -->
+		
+		<!-- <action name="rt1" class="com.result.ResultType1Action">
+			<result type="redirectAction">rt2</result>
+		</action> -->
+		<action name="rt2" class="com.result.ResultType2Action">
+			<result >/jsp/resultType2.jsp</result>
+		</action>
+	</package>
+	 
+</struts>
