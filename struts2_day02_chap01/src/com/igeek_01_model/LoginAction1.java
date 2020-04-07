@@ -1,7 +1,7 @@
 package com.igeek_01_model;
 
 import com.opensymphony.xwork2.ActionSupport;
-
+//12
 public class LoginAction1 extends ActionSupport{
 	
 	//Action作为model，通过成员变量属性和setter方法接收参数进行封装（方式一）
