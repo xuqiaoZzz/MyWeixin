@@ -8,7 +8,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-//12
+
 public class DownloadAction extends ActionSupport{
 
 	@Override
